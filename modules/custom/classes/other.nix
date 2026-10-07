@@ -1,0 +1,10 @@
+{
+  ...
+}:
+
+{
+  den.classes = {
+    finix = { };
+    microvm = { };
+  };
+}

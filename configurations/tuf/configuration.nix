@@ -1,0 +1,135 @@
+{
+  zen,
+  ...
+}:
+
+{
+  den.hosts.tuf = {
+    system = "x86_64-linux";
+    class = "nixos";
+
+    isInstaller = false;
+    flakeDir = toString /etc/nixos;
+    mainUser = "miko";
+
+    device = toString /dev/disk/by-id/nvme-WD_PC_SN5000S_SDEQNSJ-512G-1002_252323802111;
+
+    # age = "age1yubikey1qv7v8nxwrz4f8aagxu8yxq4fe9ltw8dx0eahycynufvqefznvy5u7v57hvy";
+
+    users.miko = {
+      classes = [ "homeManager" ];
+
+      shell = "zsh";
+
+      # age = "age1yubikey1q2c9snmkv7snv8tmgsvwc2rlgr92tvv0grqfxu7dw9g7jj9khms4yusej9e";
+    };
+  };
+
+  zen.hosts.tuf = {
+    includes = [
+      # keep-sorted start block=yes
+      (zen.hardware.networking.hosts [
+        "api.github.com"
+        "api.spotify.com"
+        "login5.spotify.com"
+        "encore.scdn.co"
+        "gew1-spclient.spotify.com"
+        "spclient.wg.spotify.com"
+        "api-partner.spotify.com"
+        "aet.spotify.com"
+        "www.spotify.com"
+        "accounts.spotify.com"
+        "open.spotify.com"
+        "accounts.scdn.co"
+        "gew1-dealer.spotify.com"
+        "www-growth.scdn.co"
+      ])
+      # zen.games.xbox.driver
+      zen.hardware.boot.systemd-boot
+      zen.hardware.compression.zram
+      zen.hardware.cpu-gpu
+      zen.hardware.mounting
+      zen.hardware.power
+      # zen.hardware.security.yubikey
+      # zen.hardware.virtualization.winapps
+      # zen.miscellaneous.disko
+      zen.miscellaneous.home-manager
+      zen.miscellaneous.minimal
+      zen.miscellaneous.nix
+      zen.miscellaneous.nix.substituters
+      zen.miscellaneous.npins
+      zen.miscellaneous.nur
+      zen.miscellaneous.users.accounts
+      zen.miscellaneous.version
+      zen.programs.cli.nixos-cli
+      zen.programs.cli.rusted-tools
+      # zen.secrets.sopsnix
+      # zen.services.caddy
+      # zen.services.glance
+      zen.services.greetd
+      # zen.services.proxy-suite.tg-ws-proxy
+      # zen.services.proxy-suite.zapret
+      # zen.services.qbittorrent
+      # zen.services.tailscale
+      # zen.services.vaultwarden
+      zen.styles.stylix
+      zen.suites.hardware
+      zen.suites.media
+      # keep-sorted end
+    ];
+  };
+
+  zen.users.miko = {
+    includes = [
+      # keep-sorted start
+      # zen.games.aurelia
+      # zen.games.gale
+      # zen.games.heroic
+      # zen.games.hytale
+      # zen.games.minecraft.prismlauncher
+      # zen.games.minecraft.xmcl
+      # zen.games.shattered-pixel-dungeon
+      # zen.games.srb2
+      # zen.games.srr
+      zen.games.steam
+      # zen.games.supertuxkart
+      # zen.games.umu-launcher
+      zen.miscellaneous.nix
+      zen.miscellaneous.users
+      zen.miscellaneous.xdg
+      zen.programs.cli.fastfetch
+      zen.programs.cli.gdu
+      zen.programs.cli.git
+      zen.programs.cli.monitor
+      # zen.programs.cli.rbw
+      zen.programs.cli.rezka-fzf
+      zen.programs.cli.ssh
+      zen.programs.cli.yazi
+      # zen.programs.desktop.sway.noctalia
+      zen.programs.desktop.niri
+      zen.programs.editors.helix
+      zen.programs.editors.zed
+      # zen.programs.gui._64gram
+      # zen.programs.gui.blender
+      zen.programs.gui.easy-effects
+      zen.programs.gui.firefox
+      zen.programs.gui.keepassxc
+      # zen.programs.gui.librewolf
+      # zen.programs.gui.obs-studio
+      # zen.programs.gui.qutebrowser
+      # zen.programs.gui.spotify
+      zen.programs.gui.throne
+      # zen.programs.gui.vesktop
+      # zen.programs.gui.zathura
+      # zen.programs.terminal.foot
+      zen.programs.terminal.zsh
+      # zen.programs.terminal.fish
+      # zen.programs.terminal.translate-shell
+      zen.programs.terminal.trash
+      zen.programs.terminal.zoxide
+      # zen.services.playerctld
+      zen.suites.theming
+      # # keep-sorted end
+    ];
+  };
+}
