@@ -31,7 +31,7 @@
               # programs
               lib.flatten [
                 # utils
-                (bind "Mod+D" (actions.spawn-sh "noctalia ipc panel-toggle launcher"))
+                (bind "Mod+Tab" (actions.spawn-sh "noctalia ipc panel-toggle launcher"))
                 (bind "Mod+Shift+Tab" (actions.spawn-sh "noctalia ipc panel-toggle clipboard"))
 
                 (bind "Mod+W" (actions.spawn-sh "noctalia ipc window-switcher"))

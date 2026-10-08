@@ -119,14 +119,14 @@
       # zen.programs.gui.qutebrowser
       # zen.programs.gui.spotify
       zen.programs.gui.throne
-      # zen.programs.gui.vesktop
-      # zen.programs.gui.zathura
-      # zen.programs.terminal.foot
-      zen.programs.terminal.zsh
       # zen.programs.terminal.fish
       # zen.programs.terminal.translate-shell
       zen.programs.terminal.trash
       zen.programs.terminal.zoxide
+      # zen.programs.gui.vesktop
+      # zen.programs.gui.zathura
+      # zen.programs.terminal.foot
+      zen.programs.terminal.zsh
       # zen.services.playerctld
       zen.suites.theming
       # # keep-sorted end

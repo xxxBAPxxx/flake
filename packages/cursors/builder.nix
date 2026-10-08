@@ -56,22 +56,20 @@ stdenv.mkDerivation {
     sed -i "s/^name = '[^']*'/name = '${pname}'/g" build.toml
   '';
 
-  buildPhase =
-    extra_commands
-    + ''
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/gi' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/gi' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/black/${background_color}/g' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/gi' {} \;
-      find ${svg_dir}/ -name "*.svg" -exec sed -i 's/white/${outline_color}/g' {} \;
+  buildPhase = extra_commands + ''
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#00FF00/${background_color}/gi' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#FF0000/${background_color}/gi' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/black/${background_color}/g' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/#0000FF/${outline_color}/gi' {} \;
+    find ${svg_dir}/ -name "*.svg" -exec sed -i 's/white/${outline_color}/g' {} \;
 
-      mkdir -p bitmaps/${pname}
+    mkdir -p bitmaps/${pname}
 
-      find ${svg_dir}/ -name "*.svg" -exec sh -c \
-        'inkscape --export-type=png --export-filename="bitmaps/${pname}/$(basename "{}" .svg).png" "{}" > /dev/null 2>&1' \;
+    find ${svg_dir}/ -name "*.svg" -exec sh -c \
+      'inkscape --export-type=png --export-filename="bitmaps/${pname}/$(basename "{}" .svg).png" "{}" > /dev/null 2>&1' \;
 
-      ctgen build.toml
-    '';
+    ctgen build.toml
+  '';
 
   allowSubstitutes = false;
   preferLocalBuild = true;

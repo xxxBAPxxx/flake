@@ -25,9 +25,9 @@
               })
               [
                 # keep-sorted start
-                pkgs.zsh-fzf-tab
                 pkgs.zsh-autocomplete
                 pkgs.zsh-autosuggestions
+                pkgs.zsh-fzf-tab
                 pkgs.zsh-syntax-highlighting
                 # pkgs.fishPlugins.colored-man-pages
                 # pkgs.fishPlugins.fishbang

@@ -32,8 +32,7 @@
             input = {
               keyboard.xkb = {
                 layout = "us,ru";
-                # options = "grp:caps_toggle, lv3:ralt_switch";
-                options = "grp:win_space_toggle";
+                options = "grp:caps_toggle, lv3:ralt_switch";
               };
 
               mouse = {

@@ -20,7 +20,9 @@
               type = "gpt";
 
               partitions = {
-                ESP = {
+                esp = {
+                  label = "boot-efi";
+
                   size = "1G";
                   type = "EF00";
 
@@ -30,62 +32,21 @@
                     mountpoint = "/boot";
 
                     mountOptions = [
-                      "fmask=0077"
-                      "dmask=0077"
+                      "defaults"
+                      "umask=0077"
                     ];
-                  };
-                };
-
-                swap = {
-                  size = "16G";
-
-                  content = {
-                    type = "swap";
-                    resumeDevice = true;
                   };
                 };
 
                 root = {
+                  label = "nixos-${host.hostName}";
+
                   size = "100%";
 
                   content = {
-                    type = "btrfs";
-
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-
-                    subvolumes = {
-                      "@" = {
-                        mountpoint = "/";
-                      };
-
-                      "@home" = {
-                        mountpoint = "/home";
-                      };
-
-                      "@nix" = {
-                        mountpoint = "/nix";
-                      };
-
-                      "@var" = {
-                        mountpoint = "/var";
-                      };
-
-                      "@log" = {
-                        mountpoint = "/var/log";
-
-                        mountOptions = [
-                          "compress=zstd"
-                          "noatime"
-                        ];
-                      };
-
-                      "@persistent" = {
-                        mountpoint = "/persistent";
-                      };
-                    };
+                    type = "filesystem";
+                    format = "ext4";
+                    mountpoint = "/";
                   };
                 };
               };

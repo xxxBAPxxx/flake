@@ -61,6 +61,10 @@
               matches = [ { app-id = "^steam$"; } ];
             }
             {
+              open-on-workspace = toString 5;
+              matches = [ { app-id = "^HytaleClient$"; } ];
+            }
+            {
               default-column-width.proportion = 0.5;
               matches = [
                 {
@@ -151,6 +155,9 @@
             {
               open-fullscreen = true;
               matches = [
+                {
+                  app-id = "^HytaleClient$";
+                }
                 {
                   app-id = "^swayimg$";
                 }
