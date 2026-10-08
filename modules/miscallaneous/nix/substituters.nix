@@ -13,6 +13,7 @@
       (_: {
         nix.settings = {
           substituters = lib.mkForce [
+            "https://cache.nixos.org"
             "https://mirror.yandex.ru/nixos"
             "https://xache.cachix.org"
             "https://jetcookies.cachix.org"

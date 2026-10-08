@@ -4,7 +4,9 @@
 
 {
   zen.hosts.tuf = {
-    disko =
+    # Keep the layout in the host's NixOS configuration so disko and
+    # nixos-install use the same devices and generated fileSystems.
+    nixos =
       {
         host,
         ...

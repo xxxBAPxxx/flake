@@ -52,7 +52,7 @@
       zen.hardware.power
       # zen.hardware.security.yubikey
       # zen.hardware.virtualization.winapps
-      # zen.miscellaneous.disko
+      zen.miscellaneous.disko
       zen.miscellaneous.home-manager
       zen.miscellaneous.minimal
       zen.miscellaneous.nix
@@ -106,7 +106,8 @@
       zen.programs.cli.ssh
       zen.programs.cli.yazi
       # zen.programs.desktop.sway.noctalia
-      zen.programs.desktop.niri
+      # zen.programs.desktop.niri
+      zen.programs.desktop.umbriel
       zen.programs.editors.helix
       zen.programs.editors.zed
       # zen.programs.gui._64gram

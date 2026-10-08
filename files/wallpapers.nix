@@ -83,15 +83,19 @@ in
       {
         file."wallpapers.md" =
           let
-            formatEntry = name: entry: ''
-              [__${name}__](${entry.page}) -> (_${entry.full}_)
+            formatEntry =
+              name: entry:
+              lib.trim ''
+                [**${name}**](${entry.page}) -> (_${entry.full}_)
 
-              ![${name}](${entry.small})
-            '';
+                ![${name}](${entry.small})
+              '';
 
-            formatTag = name: url: ''
-              __${name}__ -> (${url})
-            '';
+            formatTag =
+              name: url:
+              lib.trim ''
+                **${name}** -> (${url})
+              '';
           in
           {
             text = ''
